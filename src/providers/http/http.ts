@@ -38,4 +38,32 @@ export class HttpProvider {
     });
   }
 
+  public post(url: string, model: any): Promise<HttpResulModel> {
+    this.spinnerSrv.Show("Salvando Informações...");
+    return new Promise((resolve) => {
+      if (this.networkSrv.IsOnLine) {
+        this.http.post(url, model)
+          .subscribe(_res => {
+            this.spinnerSrv.Hide();
+            resolve({ success: true, data: _res, err: undefined });
+          }, err => {
+            this.spinnerSrv.Hide();
+            if (err.status == 400){
+              let msg = '';
+              err.error.errors.array.forEach(_err => {
+                msg +=`<li>${_err.message}</li>`;
+              });
+              this.alertSrv.alert('Informação', msg);
+            }
+            this.alertSrv.toast('Não foi possível realizar o processamento da informação, verifique sua conexão e tente novamente', 'bottom');
+            resolve({ success: false, data: undefined, err: err });
+          });
+      }
+      else {
+        this.alertSrv.toast('Você está Offline, e infelizmente não pode ser carregado os dados!', 'bottom');
+        resolve({ success: true, data: [], err: undefined });
+      }
+    });
+  }
+
 }

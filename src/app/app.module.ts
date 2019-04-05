@@ -9,6 +9,7 @@ import { SpinnerProvider } from '../providers/spinner/spinner';
 import { AlertProvider } from '../providers/alert/alert';
 import { HttpProvider } from '../providers/http/http';
 import { NetworkProvider } from '../providers/network/network';
+import { UsuarioProvider } from '../providers/usuario/usuario';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NetworkProvider } from '../providers/network/network';
     SpinnerProvider,
     AlertProvider,
     HttpProvider,
-    NetworkProvider
+    NetworkProvider,
+    UsuarioProvider
   ]
 })
 export class AppModule {}
