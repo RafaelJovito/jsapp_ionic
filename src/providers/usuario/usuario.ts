@@ -1,11 +1,20 @@
-import { HttpClient } from '@angular/common/http';
+import { ConfigHelper } from './../../app/helpers/configHelper';
+import { HttpProvider } from './../http/http';
+import { UsuarioModel } from './../../app/models/usuarioModel';
 import { Injectable } from '@angular/core';
+import { ProviderBase } from '../../app/base/providerBase';
 
 @Injectable()
-export class UsuarioProvider {
+export class UsuarioProvider extends ProviderBase<UsuarioModel>{
 
-  constructor(public http: HttpClient) {
-    console.log('Hello UsuarioProvider Provider');
+  url: string = `${ConfigHelper.Url}usuario`;
+
+  constructor(public http: HttpProvider) {
+    super(`${ConfigHelper.Url}usuario`, http);
+  }
+
+  async autenticate(email: string, senha: string): Promise<any>{
+    return this.http.post(`$(this.url)/autenticar`, {email: email, senha: senha});
   }
 
 }

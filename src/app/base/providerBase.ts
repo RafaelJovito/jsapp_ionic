@@ -16,7 +16,15 @@ export abstract class ProviderBase<T> {
         return this.http.get(`${this.url}/${uid}`);
     }
 
-    // post(model T): Promise<HttpResulModel> {
+    post(model: T): Promise<HttpResulModel> {
+        return this.http.post(this.url, model);
+    }
 
-    // }
+    put(uid: string, model: T): Promise<HttpResulModel> {
+        return this.http.put(`${this.url}/${uid}`, model);
+    }
+
+    delete(uid: string): Promise<HttpResulModel>{
+        return this.http.delete(`${this.url}/${uid}`);
+    }
 }
