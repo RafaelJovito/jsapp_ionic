@@ -7,16 +7,16 @@
   
       <ion-list no-lines>
         <ion-item>
-          <ion-input type="text" placeholder="E-mail"></ion-input>
+          <ion-input [(ngModel)]="form.email" type="text" placeholder="E-mail"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="password" placeholder="Senha"></ion-input>
+          <ion-input [(ngModel)]="form.senha" type="password" placeholder="Senha"></ion-input>
         </ion-item>
       </ion-list>
   
       <ion-grid>
         <ion-row>
-          <button ion-button color="secondary" block round (click)="abrirCategoria()">
+          <button ion-button color="secondary" block round (click)="login()">
             Efetuar Login
           </button>
         </ion-row>

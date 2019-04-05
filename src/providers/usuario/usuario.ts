@@ -1,3 +1,4 @@
+import { HttpResulModel } from './../../app/models/HttpResultModel';
 import { ConfigHelper } from './../../app/helpers/configHelper';
 import { HttpProvider } from './../http/http';
 import { UsuarioModel } from './../../app/models/usuarioModel';
@@ -13,7 +14,7 @@ export class UsuarioProvider extends ProviderBase<UsuarioModel>{
     super(`${ConfigHelper.Url}usuario`, http);
   }
 
-  async autenticate(email: string, senha: string): Promise<any>{
+  async autenticate(email: string, senha: string): Promise<HttpResulModel>{
     return this.http.post(`$(this.url)/autenticar`, {email: email, senha: senha});
   }
 
