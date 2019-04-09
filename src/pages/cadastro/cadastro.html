@@ -7,11 +7,23 @@
 
   <ion-list no-lines class="list-transparent">
     <ion-item>
-      <ion-input [(ngModel)]="form.email" type="text" placeholder="E-mail"></ion-input>
+      <ion-input [(ngModel)]="usuario.nome" type="text" placeholder="Nome"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input [(ngModel)]="form.senha" type="password" placeholder="Senha"></ion-input>
+      <ion-input [(ngModel)]="usuario.email" type="text" placeholder="E-mail"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="usuario.senha" type="password" placeholder="Senha"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="usuario.senhaConfirmacao" type="password" placeholder="Confirmação da Senha"></ion-input>
     </ion-item>
   </ion-list>
   
+  <ion-grid>
+    <ion-row>
+      <button ion-button block round color="secondary">Cadstrar</button>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
