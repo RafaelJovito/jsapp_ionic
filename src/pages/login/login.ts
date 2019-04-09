@@ -24,4 +24,8 @@ export class LoginPage {
     }
     console.log(result);
   }
+
+  cadastrar(): void {
+    this.navCtrl.setRoot('CadastroPage');
+  }
 }
