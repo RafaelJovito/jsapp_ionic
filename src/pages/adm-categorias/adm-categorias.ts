@@ -1,12 +1,8 @@
+import { CategoriaProvider } from './../../providers/categoria/categoria';
+import { CategoriaModel } from './../../app/models/categoriaModel';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the AdmCategoriasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +11,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AdmCategoriasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  lista:Array<CategoriaModel> = new Array<CategoriaModel>();
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private categoriaSrv: CategoriaProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AdmCategoriasPage');
+  private async _loadData(): Promise<void>{
+
+      let categoriaResult = await this.categoriaSrv.get();
+
   }
 
 }
