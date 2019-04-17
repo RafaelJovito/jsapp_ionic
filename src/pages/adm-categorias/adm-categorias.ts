@@ -22,7 +22,9 @@ export class AdmCategoriasPage {
   private async _loadData(): Promise<void>{
 
       let categoriaResult = await this.categoriaSrv.get();
-
+      if (categoriaResult.success){
+        this.lista = categoriaResult.data;
+      }
   }
 
 }
