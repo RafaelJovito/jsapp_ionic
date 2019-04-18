@@ -17,13 +17,15 @@ export class AdmCategoriasPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private categoriaSrv: CategoriaProvider) {
+
+      this._loadData();
   }
 
   private async _loadData(): Promise<void>{
 
       let categoriaResult = await this.categoriaSrv.get();
       if (categoriaResult.success){
-        this.lista = categoriaResult.data;
+        this.lista = <Array<CategoriaModel>> categoriaResult.data;
       }
   }
 
