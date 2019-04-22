@@ -23,12 +23,12 @@ export class HttpProvider {
       header = new HttpHeaders();
     }
 
-    header.append('Content-Type','aplication/json');
-    header.append('Accept','aplication/json');
+    header = header.append('Content-Type','aplication/json');
+    header = header.append('Accept','aplication/json');
 
     let token = UsuarioProvider.GetTokenAccess;
     if (token){
-      header.append('x-access-token', token);
+      header = header.append('x-access-token', token);
     }
 
     return header;
@@ -36,9 +36,11 @@ export class HttpProvider {
 
   public get(url: string): Promise<HttpResulModel> {
     this.spinnerSrv.Show("Carregando os dados...");
+    let header = this.createHeader();
+
     return new Promise((resolve) => {
       if (this.networkSrv.IsOnLine) {
-        this.http.get(url)
+        this.http.get(url, { headers: header })
           .subscribe(_res => {
             this.spinnerSrv.Hide();
             resolve({ success: true, data: _res, err: undefined });
