@@ -1,8 +1,9 @@
+import { UsuarioProvider } from './../usuario/usuario';
 import { AlertProvider } from './../alert/alert';
 import { NetworkProvider } from './../network/network';
 import { HttpResulModel } from './../../app/models/HttpResultModel';
 import { SpinnerProvider } from './../spinner/spinner';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -15,6 +16,22 @@ export class HttpProvider {
     private networkSrv: NetworkProvider
   ) {
 
+  }
+
+  public createHeader(header?: HttpHeaders): HttpHeaders {
+    if (!header) {
+      header = new HttpHeaders();
+    }
+
+    header.append('Content-Type','aplication/json');
+    header.append('Accept','aplication/json');
+
+    let token = UsuarioProvider.GetTokenAccess;
+    if (token){
+      header.append('x-access-token', token);
+    }
+
+    return header;
   }
 
   public get(url: string): Promise<HttpResulModel> {
