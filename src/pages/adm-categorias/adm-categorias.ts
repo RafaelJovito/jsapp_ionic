@@ -29,4 +29,8 @@ export class AdmCategoriasPage {
       }
   }
 
+  addOrEdit(model?: CategoriaModel): void {
+    this.navCtrl.push('AdmCategoriaPage', { _categoria: model});
+  }
+
 }
