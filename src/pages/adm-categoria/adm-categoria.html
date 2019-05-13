@@ -21,12 +21,12 @@
       <ion-textarea [(ngModel)]="caegoria.descricao" rows="4" placeholder="Adicione a descrição da sua Categoria"></ion-textarea>
     </ion-item>
     <ion-item text-center>
-      <button ion-button clear>
+      <button ion-button clear (click)="etPictureOption()">
         <ion-icon name="camera" item-left></ion-icon>
         Selecionar Foto
       </button>
     </ion-item>
-    <ion-item >
+    <ion-item *ngIf="categoria.foto">
       <img [src]="categoria.foto">
     </ion-item>
   </ion-list>

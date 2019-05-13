@@ -39,6 +39,8 @@ export class CameraProvider {
           console.log('problema ao tirar a foto', error);
         }
       });
+    } else{
+      alert('Funcionalidade disponivel somente no divice')
     }
   }
 
