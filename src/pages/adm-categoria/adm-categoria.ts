@@ -50,6 +50,7 @@ export class AdmCategoriaPage {
         {
           text: 'Cancelar',
           role: 'destrutive',
+          icon: this.platform.is('ios')? null : 'close',
           handler: () => {
             //Cancela a ação
           }

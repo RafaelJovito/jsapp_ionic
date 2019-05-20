@@ -3,7 +3,7 @@
     <name>CodeFood</name>
     <description>Aplicativo de Delivery</description>
     <author email="contato@codevolution.com.br" href="https://codevolution.com.br/">© Copyright Codevolution 2019</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.129.153:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -85,4 +85,5 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
         <string>Used to take pictures</string>
     </edit-config>
+    <allow-navigation href="http://192.168.129.153:8100" />
 </widget>
