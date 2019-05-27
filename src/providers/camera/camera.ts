@@ -1,6 +1,6 @@
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Platform } from 'ionic-angular';
-import { Injectable, ErrorHandler } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 
 @Injectable()
